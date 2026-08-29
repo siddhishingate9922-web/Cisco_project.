@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>NetGuard | Cisco Network Diagnostics</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">N</div>
+
+            <div>
+                <h2>NetGuard</h2>
+                <span>Network Diagnostics</span>
+            </div>
+        </div>
+
+
+        <nav>
+
+            <button class="nav-item active"
+                    onclick="showDashboard()">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item"
+                    onclick="loadKnowledgeBase()">
+                <span>▤</span>
+                Knowledge Base
+            </button>
+
+        </nav>
+
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            <div>
+                <strong>System Online</strong>
+                <small>Cisco diagnostic engine</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+                <p class="eyebrow">NETWORK OPERATIONS</p>
+                <h1>Fault Diagnosis Center</h1>
+            </div>
+
+            <div class="top-status">
+                ● Backend Connected
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard">
+
+            <div class="welcome">
+
+                <div>
+                    <h2>Analyze Network Evidence</h2>
+
+                    <p>
+                        Enter Cisco command output or fault evidence
+                        to identify the most relevant network issue.
+                    </p>
+                </div>
+
+                <div class="network-symbol">
+                    ◉━━◇━━◉
+                </div>
+
+            </div>
+
+
+            <div class="workspace">
+
+                <!-- INPUT -->
+
+                <section class="panel evidence-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <span class="section-number">01</span>
+                            <h3>Fault Evidence</h3>
+                        </div>
+
+                        <span class="tag">CISCO CLI</span>
+
+                    </div>
+
+
+                    <label>
+                        Paste show-command output or describe the fault
+                    </label>
+
+                    <textarea
+                        id="faultInput"
+                        placeholder="Example: GigabitEthernet0/0 is administratively down; shutdown"
+                    >GigabitEthernet0/0 is administratively down; shutdown</textarea>
+
+
+                    <button class="analyze-btn"
+                            onclick="analyzeFault()">
+
+                        Analyze Network Fault
+                        <span>→</span>
+
+                    </button>
+
+                </section>
+
+
+                <!-- RESULT -->
+
+                <section id="resultSection"
+                         class="panel result-panel hidden">
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <span class="section-number">02</span>
+                            <h3>Diagnostic Result</h3>
+                        </div>
+
+                        <span id="category"
+                              class="tag">
+                            -
+                        </span>
+
+                    </div>
+
+
+                    <div class="diagnosis-box">
+
+                        <span>DIAGNOSIS</span>
+
+                        <h2 id="diagnosis">-</h2>
+
+                    </div>
+
+
+                    <div class="severity-row">
+
+                        <span>Severity</span>
+
+                        <strong id="severity">-</strong>
+
+                    </div>
+
+
+                    <div class="solution-box">
+
+                        <span>RECOMMENDED SOLUTION</span>
+
+                        <p id="solution">-</p>
+
+                    </div>
+
+
+                    <div class="evaluation-box">
+
+                        <span class="evaluation-title">
+                            HUMAN VALIDATION
+                        </span>
+
+                        <p>
+                            Review the recommended solution
+                            before adding it to the knowledge base.
+                        </p>
+
+
+                        <div class="evaluation-buttons">
+
+                            <button class="approve"
+                                    onclick="approveSolution()">
+                                ✓ Approve Solution
+                            </button>
+
+                            <button class="reject"
+                                    onclick="showCorrection()">
+                                ✕ Reject & Correct
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- CORRECTION -->
+
+            <section id="correctionSection"
+                     class="panel correction-panel hidden">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <span class="section-number">03</span>
+                        <h3>Human Correction</h3>
+                    </div>
+
+                </div>
+
+
+                <textarea
+                    id="correctedSolution"
+                    placeholder="Enter the correct troubleshooting solution..."
+                ></textarea>
+
+
+                <button class="submit-btn"
+                        onclick="submitCorrection()">
+                    Save Validated Solution
+                </button>
+
+            </section>
+
+
+            <!-- SUCCESS -->
+
+            <section id="successSection"
+                     class="validation-banner hidden">
+
+                <div class="check">✓</div>
+
+                <div>
+                    <strong>Evaluation Completed</strong>
+                    <p id="validationMessage"></p>
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- KNOWLEDGE BASE -->
+
+        <section id="knowledgeSection"
+                 class="knowledge-section hidden">
+
+            <div class="knowledge-header">
+
+                <div>
+                    <p class="eyebrow">VALIDATED DATA</p>
+                    <h2>Knowledge Base</h2>
+                </div>
+
+                <button onclick="showDashboard()"
+                        class="back-btn">
+                    ← Back to Diagnosis
+                </button>
+
+            </div>
+
+
+            <div id="knowledgeBase"
+                 class="table-container">
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
