@@ -1,0 +1,26 @@
+[
+    {
+        "fault": "GigabitEthernet0/0 is administratively down; shutdown",
+        "diagnosis": "Interface is administratively down",
+        "suggested_solution": "Enter the interface configuration and use the 'no shutdown' command.",
+        "human_decision": "approved",
+        "corrected_solution": "",
+        "validated_solution": "Enter the interface configuration and use the 'no shutdown' command."
+    },
+    {
+        "fault": "OSPF neighbor is down",
+        "diagnosis": "OSPF neighbor adjacency failure",
+        "suggested_solution": "Check OSPF configuration, area settings, network connectivity, timers, and interface status.",
+        "human_decision": "approved",
+        "corrected_solution": "",
+        "validated_solution": "Check OSPF configuration, area settings, network connectivity, timers, and interface status."
+    },
+    {
+        "fault": "OSPF neighbor is down",
+        "diagnosis": "OSPF neighbor adjacency failure",
+        "suggested_solution": "Check OSPF configuration, area settings, network connectivity, timers, and interface status.",
+        "human_decision": "approved",
+        "corrected_solution": "",
+        "validated_solution": "Check OSPF configuration, area settings, network connectivity, timers, and interface status."
+    }
+]

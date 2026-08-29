@@ -1,0 +1,162 @@
+[
+    {
+        "case_id": 1,
+        "category": "Interface",
+        "diagnosis": "Interface is administratively down",
+        "fault_evidence": "GigabitEthernet0/0 is administratively down; shutdown",
+        "severity": "High",
+        "solution": "Enter the interface configuration and use the 'no shutdown' command."
+    },
+    {
+        "case_id": 2,
+        "category": "Interface",
+        "diagnosis": "Network interface is down",
+        "fault_evidence": "Interface GigabitEthernet0/1 is down",
+        "severity": "High",
+        "solution": "Check the cable, interface configuration, and use 'no shutdown'."
+    },
+    {
+        "case_id": 3,
+        "category": "Interface",
+        "diagnosis": "Line protocol is down",
+        "fault_evidence": "Line protocol on GigabitEthernet0/0 is down",
+        "severity": "High",
+        "solution": "Check the physical connection, interface configuration, and connected device."
+    },
+    {
+        "case_id": 4,
+        "category": "Physical",
+        "diagnosis": "Physical connectivity failure",
+        "fault_evidence": "Cable disconnected from GigabitEthernet0/0",
+        "severity": "High",
+        "solution": "Check and reconnect the network cable and verify interface status."
+    },
+    {
+        "case_id": 5,
+        "category": "Physical",
+        "diagnosis": "CRC errors indicate a physical or link quality problem",
+        "fault_evidence": "CRC errors detected on interface",
+        "severity": "Medium",
+        "solution": "Check the cable, connectors, interface hardware, and replace faulty components."
+    },
+    {
+        "case_id": 6,
+        "category": "IP Configuration",
+        "diagnosis": "IP address configuration error",
+        "fault_evidence": "PC has incorrect IP address",
+        "severity": "High",
+        "solution": "Assign the correct IP address according to the network addressing plan."
+    },
+    {
+        "case_id": 7,
+        "category": "IP Configuration",
+        "diagnosis": "Subnet mask configuration error",
+        "fault_evidence": "PC has incorrect subnet mask",
+        "severity": "High",
+        "solution": "Configure the correct subnet mask for the network."
+    },
+    {
+        "case_id": 8,
+        "category": "IP Configuration",
+        "diagnosis": "Default gateway configuration error",
+        "fault_evidence": "Default gateway is incorrect",
+        "severity": "High",
+        "solution": "Configure the correct default gateway address."
+    },
+    {
+        "case_id": 9,
+        "category": "IP Configuration",
+        "diagnosis": "IP address conflict detected",
+        "fault_evidence": "Duplicate IP address detected",
+        "severity": "High",
+        "solution": "Identify the duplicate device and assign unique IP addresses."
+    },
+    {
+        "case_id": 10,
+        "category": "Connectivity",
+        "diagnosis": "Network connectivity failure",
+        "fault_evidence": "Host is unreachable",
+        "severity": "High",
+        "solution": "Check IP configuration, interfaces, routing, cables, and connectivity using ping."
+    },
+    {
+        "case_id": 11,
+        "category": "Performance",
+        "diagnosis": "Packet loss detected",
+        "fault_evidence": "Packet loss detected between network devices",
+        "severity": "Medium",
+        "solution": "Check cables, interface errors, congestion, and network connectivity."
+    },
+    {
+        "case_id": 12,
+        "category": "Performance",
+        "diagnosis": "High network latency detected",
+        "fault_evidence": "High network latency detected",
+        "severity": "Medium",
+        "solution": "Check network congestion, routing, and device performance."
+    },
+    {
+        "case_id": 13,
+        "category": "DHCP",
+        "diagnosis": "DHCP service or configuration failure",
+        "fault_evidence": "Client is unable to obtain an IP address from DHCP",
+        "severity": "High",
+        "solution": "Check DHCP configuration, server availability, VLAN configuration, and DHCP relay."
+    },
+    {
+        "case_id": 14,
+        "category": "DHCP",
+        "diagnosis": "DHCP pool has no available addresses",
+        "fault_evidence": "DHCP address pool is exhausted",
+        "severity": "Medium",
+        "solution": "Expand the DHCP address pool or release unused leases."
+    },
+    {
+        "case_id": 15,
+        "category": "DNS",
+        "diagnosis": "DNS resolution failure",
+        "fault_evidence": "DNS resolution is failing",
+        "severity": "Medium",
+        "solution": "Check DNS server availability, DNS configuration, and network connectivity."
+    },
+    {
+        "case_id": 16,
+        "category": "Routing",
+        "diagnosis": "Required route is missing",
+        "fault_evidence": "Destination network is missing from routing table",
+        "severity": "High",
+        "solution": "Add the appropriate static or dynamic route and verify the routing table."
+    },
+    {
+        "case_id": 17,
+        "category": "OSPF",
+        "diagnosis": "OSPF neighbor adjacency failure",
+        "fault_evidence": "OSPF neighbor is down",
+        "severity": "High",
+        "solution": "Check OSPF configuration, area settings, network connectivity, timers, and interface status."
+    },
+    {
+        "case_id": 18,
+        "category": "VLAN",
+        "diagnosis": "VLAN configuration mismatch",
+        "fault_evidence": "Devices in the same VLAN cannot communicate because of VLAN mismatch",
+        "severity": "High",
+        "solution": "Verify VLAN membership on switch ports and ensure the correct VLAN is configured."
+    },
+    {
+        "case_id": 19,
+        "category": "Trunk",
+        "diagnosis": "Trunk configuration problem",
+        "fault_evidence": "Trunk link is not carrying the required VLAN",
+        "severity": "High",
+        "solution": "Verify trunk mode, allowed VLANs, native VLAN, and trunk status."
+    },
+    {
+        "case_id": 20,
+        "category": "Unknown",
+        "diagnosis": "Unknown network fault",
+        "fault_evidence": "Cisco evidence is incomplete or insufficient",
+        "severity": "Unknown",
+        "solution": "Collect additional Cisco show-command information for further analysis."
+    }
+]
